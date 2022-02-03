@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="header text-center py-5">
+        <h1> Create Task</h1>
+    </div>
+    <div class="content-section">
+        
+        <form method="post" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+
+                {% if form.title.errors %}
+                    {% for error in form.title.errors %}
+                        <spam> {{ error }}
+                    {% endfor %}
+                {% endif %}
+
+                {{ form.title(class="form-control form-control-lg") }}
+            </div>
+            <div class="form-group">
+                {{ form.description.label(class="form-control-label") }}
+                
+                {% if form.description.errors %}
+                    {% for error in form.description.errors %}
+                        <spam> {{ error }}
+                    {% endfor %}
+                {% endif %}
+
+                {{ form.description(class="form-control form-control-lg") }}
+            </div>
+
+
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
