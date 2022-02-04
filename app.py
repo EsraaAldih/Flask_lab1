@@ -55,14 +55,14 @@ def update_Todo(id):
 
 
 
-@app.route('/delete/<int:id>', methods=['GET','POST'])    
+@app.route('/delete/<int:id>', methods=['Delete'])    
 def delete_Todo(id):
-   form = ToDoForm()  
-#   for post in posts:
-#     if id == post.get('id'):
-#         del post
+   for post in posts:
+     if id == post.get('id'):
+         posts.remove(post)
 #    posts[:] = [d for d in posts if d.get('id') != id]
    return render_template('home.html', posts=posts)  
 
 
 app.run(debug=True)
+ 
